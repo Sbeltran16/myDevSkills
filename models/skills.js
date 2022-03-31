@@ -7,7 +7,9 @@ const anime = [
 
 module.exports = {
     getAll,
-    getOne
+    getOne,
+    create,
+    deleteOne
 };
 
 
@@ -17,4 +19,16 @@ function getAll(){
 
 function getOne(id) {
     return anime.find(anime => anime.id === parseInt(id))
+}
+
+function create(animes){
+    animes.id = Date.now() % 100000;
+
+    animes.done = false;
+    anime.push(animes);
+}
+
+function deleteOne(id) {
+    const idx = anime.findIndex(anime => anime.id === parseInt(id));
+    anime.splice(idx, 1);
 }

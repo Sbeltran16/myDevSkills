@@ -8,10 +8,19 @@
 </head>
 <body>
     <h1>Anime</h1>
+    <a href="/skills/new">Add New Anime</a>
     <ul>
         <% skills.forEach(function(a) { %>
-        <a href="/skills/<%= a.id %>"><li><%= a.anime %> - <%= a.Great = 'Rating' %></li></a>
-      <% }); %>
+        <a href="/skills/<%= a.id %>"><li><%= a.anime %> - <%= a.Great = 'Rating' %>
+        </li></a>
+
+        <li>
+            <form action="/skills/<%= a.id %>?_method=DELETE"
+                class="delete-form" method="POST">
+                <button type="submit">DELETE <%= a.anime %> </button>
+            </form>
+        </li> 
+        <% }); %>
     </ul>
 </body>
 </html>
